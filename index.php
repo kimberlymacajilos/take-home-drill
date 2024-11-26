@@ -30,6 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $score++;
         }
     }
+
+    $name = htmlspecialchars($_POST['name']);
+    $query = "INSERT INTO leaderboard (name, score) VALUES (?, ?)";
+    $stmt = mysqli_prepare($conn, $query);
+    
     echo "<h2>Your Score: $score/" . count($questions) . "</h2>";
     echo '<a href="index.php">Try Again</a>';
     exit;
@@ -48,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="post" action="">
         <label for="name">Enter your name:</label><br>
         <input type="text" id="name" name="name" required><br><br>
-        
+
         <?php foreach ($questions as $index => $question): ?>
             <fieldset>
                 <legend><?php echo $question['question']; ?></legend>
