@@ -18,6 +18,14 @@ if (isset($_GET['start']) && isset($_GET['end'])){
         $leaderboard = $result->fetch_all(MYSQLI_ASSOC);
     }
 }
+else{
+    $query = "SELECT name, score, date_taken FROM leaderboard ORDER BY score DESC, date_taken ASC LIMIT 10";
+    $result = mysqli_query($conn, $query);
+
+    if ($result){
+        $leaderboard = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+}
 ?>
 
 
