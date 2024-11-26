@@ -20,5 +20,27 @@ include "connection.php";
         <input type="date" id="end" name="end" required>
         <button type="submit">Filter</button>
     </form>
+    <br>
+    <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Date Taken</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
