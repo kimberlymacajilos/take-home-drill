@@ -26,10 +26,11 @@ else{
         $leaderboard = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 }
+
+if (!$result){
+    die("Error fecthing leaderboard data: ". mysqli_error($conn));
+}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
