@@ -50,26 +50,35 @@ if (!$result){
         <button type="submit">Filter</button>
     </form>
     <br>
-    <br>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-                <th>Date Taken</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <?php if ($leaderboard): ?>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Date Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $rank =1;
+                foreach ($leaderboard as $row): ?>
+                    <tr>
+                        <td><?php echo $rank++; ?></td>
+                        <td><?php echo htmlspecialchars($row['name']); ?></td>
+                        <td><?php echo $row['score']; ?></td>
+                        <td><?php echo $row['date_taken']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>There are no scores to display for the selected date range.</p>
+    <?php endif; ?>
+
+    <a href="index.php">Back to Quiz</a>
 
 </body>
 </html>
