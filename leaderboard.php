@@ -1,6 +1,26 @@
 <?php
 include "connection.php";
+
+$leaderboard = [];
+
+if (isset($_GET['start']) && isset($_GET['end'])){
+    $startdate = $_GET['start'];
+    $enddate = $_GET['end'];
+
+    $query = "SELECT name, score, date_taken FROM leaderboard WHERE date_taken BETWEEN ? AND ?
+              ORDER BY score DESC, date_taken ASC LIMIT 10";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $startdate, $enddate);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result) {
+        $leaderboard = $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
 ?>
+
+
 
 
 <!DOCTYPE html>
