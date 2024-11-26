@@ -34,9 +34,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = htmlspecialchars($_POST['name']);
     $query = "INSERT INTO leaderboard (name, score) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    
-    echo "<h2>Your Score: $score/" . count($questions) . "</h2>";
-    echo '<a href="index.php">Try Again</a>';
+
+    if ($stmt){
+        mysqli_stmt_bind_param($stmt, "si", $name, $score);
+        mysqli_stmt_execute($stmt);
+
+        if (mysqli_stmt_error($stmt)){
+            echo "Error saving score: " . mysqli_stmt_error($stmt);
+        }
+        else {
+            echo "<h2>Your Score: $score/" . count($questions) . "</h2>";
+            echo '<a href="index.php">Try Again</a> | <a href="leaderboard.php">View Leaderboard</a>';
+        }
+
+        mysqli_stmt_close($stmt);
+    }
+    else{
+        echo "Error preparing query: " . mysqli_error($conn);
+    }
+
     exit;
 }
 ?>
