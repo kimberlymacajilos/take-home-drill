@@ -10,7 +10,7 @@ $questions = [
     ],
     [
         "question" => "what do you call an angle less than 90 degrees?",
-        "options" => ["right angle", "acute angle", "obstuse angle", "straight angle"],
+        "options" => ["right angle", "acute angle", "obtuse angle", "straight angle"],
         "answer" => 1
     ],
     [
@@ -72,10 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Quiz</title>
+    <title>Math Quiz</title>
 </head>
 <body>
-    <h1>PHP Quiz</h1>
+    <h1>Math Quiz</h1>
     <form method="post" action="">
         <label for="name">Enter your name:</label><br>
         <input type="text" id="name" name="name" required><br><br>
