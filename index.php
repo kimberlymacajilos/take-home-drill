@@ -4,20 +4,30 @@ include "connection.php";
 // Define questions and answers
 $questions = [
     [
-        "question" => "What does PHP stand for?",
-        "options" => ["Personal Home Page", "Private Home Page", "PHP: Hypertext Preprocessor", "Public Hypertext Preprocessor"],
-        "answer" => 2
+        "question" => "What is the answer for this quadratic equation (x^(2)+7x+10)",
+        "options" => ["x = 1,5", "x = 7,3", "x = 4,3", "x = 5,2"],
+        "answer" => 3
     ],
     [
-        "question" => "Which symbol is used to access a property of an object in PHP?",
-        "options" => [".", "->", "::", "#"],
+        "question" => "what do you call an angle less than 90 degrees?",
+        "options" => ["right angle", "acute angle", "obstuse angle", "straight angle"],
         "answer" => 1
     ],
     [
-        "question" => "Which function is used to include a file in PHP?",
-        "options" => ["include()", "require()", "import()", "load()"],
+        "question" => "How many zero in quadrillion?",
+        "options" => ["4", "8", "15", "18"],
+        "answer" => 2
+    ],
+    [
+        "question" => "What is 10011101 + 00110111?",
+        "options" => ["00110110", "11101001", "11010100", "00111010"],
+        "answer" => 2
+    ],
+    [
+        "question" => "What is 01101011 + 10001100?",
+        "options" => ["11100111", "00110101", "01010101", "11111111"],
         "answer" => 0
-    ]
+    ],
 ];
 
 // Initialize score
